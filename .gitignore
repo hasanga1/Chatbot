@@ -1,0 +1,85 @@
+# Node.js dependencies
+node_modules/
+
+# Output directories
+dist/
+build/
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# TypeScript compiled files
+*.tsbuildinfo
+
+# Optional npm cache directory
+.npm
+
+# Debug and runtime files
+pids/
+*.pid
+*.pid.lock
+
+# IDE and editor files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Coverage directory used by testing tools like Jest
+coverage/
+
+# Temporary files
+tmp/
+temp/
+
+# Dependency directories
+jspm_packages/
+bower_components/
+
+# Secrets
+*.pem
+*.crt
+*.key
+
+# Optional lock files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# ESLint cache
+.eslintcache
+
+# Parcel-bundler cache (if used)
+.cache/
+
+# Storybook build output
+out/
+
+# TypeScript declaration files
+*.d.ts
+
+# Cache files for modules
+*.log
+
+# Ignore config files
+config/
+
+# Python virtual environment
+venv/
