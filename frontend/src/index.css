@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #081c15;
+  color: #d8f3dc;
+  font-family: "Lato", sans-serif;
+}
+
+.logo-normal {
+  margin-top: 6px;
+}
+
+.nav-link-left {
+  text-decoration: none;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-left: 5px;
+  padding: 8px 20px;
+  border-radius: 5px 0 0 5px ;
+  letter-spacing: 1px;
+  font-size: small;
+}
+
+.nav-link-right {
+  text-decoration: none;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-right: 5px;
+  padding: 8px 20px;
+  border-radius: 0 5px 5px 0;
+  letter-spacing: 1px;
+  font-size: small;
+}
+
+.MuiOutlinedInput-input-root.Mui-focused,  
+.MuiOutlinedInput-notchedOutline {
+  border-color: white !important;
+}
