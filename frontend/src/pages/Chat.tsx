@@ -73,10 +73,10 @@ const Chat = () => {
   }, [auth]);
 
   useEffect(() => {
-    if(!auth?.user) {
+    if (!auth?.user) {
       return navigate("/login");
     }
-  }, [auth])
+  }, [auth]);
 
   return (
     <Box
@@ -84,62 +84,101 @@ const Chat = () => {
         display: "flex",
         flex: 1,
         width: "100%",
-        height: "100%",
-        mt: 10,
+        height: "100vh",
         gap: 3,
-        bgcolor: "black",
+        background: "#e9e9e9",
       }}
     >
       <Box
         sx={{
-          display: { md: "flex", xs: "none", sm: "none" },
+          display: { md: "flex", height: "100vh" },
           flex: 0.2,
           flexDirection: "column",
+          overflowY: "auto",
         }}
       >
         <Box
           sx={{
             display: "flex",
             width: "100%",
-            height: "60vh",
-            bgcolor: "rgb(17,29,39)",
-            borderRadius: 5,
+            height: "100vh",
+            bgcolor: "#fff",
             flexDirection: "column",
-            mx: 3,
+            pt: "100px",
+            overflowY: "auto",
           }}
         >
           <Avatar
             sx={{
               mx: "auto",
               my: 2,
-              bgcolor: "white",
-              color: "black",
+              bgcolor: "#393939",
+              color: "white",
               fontWeight: 700,
             }}
           >
             {auth?.user?.name[0]}
           </Avatar>
-          <Typography sx={{ mx: "auto" }}>
-            You are talking to a chatbot
+          <Typography sx={{ mx: "auto" }} color={"#2a2a2a"} fontWeight={600}>
+            {auth?.user?.name}
           </Typography>
-          <Typography sx={{ mx: "auto", my: 4, p: 3 }}>
-            You can ask some questions related to Knowledge, Business, Advice,
-            Education, etc. But avoid sharing personal information.
+
+          <Typography
+            sx={{ mx: "auto", pt: "50px" }}
+            color={"#2a2a2a"}
+            fontWeight={600}
+            fontSize={"20px"}
+          >
+            Welcome to{" "}
+            <b style={{ fontWeight: "800px", color: "black" }}>ECHOCHAT</b> !
           </Typography>
+
+          <Typography sx={{ mx: "auto", p: 3 }} color={"#2a2a2a"}>
+            You can ask me anything! Here’s what I can do:
+            <br />
+            <br />
+            <strong>General Info:</strong> Get answers to common questions.
+            <br />
+            <em>Example:</em> What's the capital of France?
+            <br />
+            <br />
+            <strong>Study Help:</strong> I can explain topics or solve problems.
+            <br />
+            <em>Example:</em> Explain photosynthesis.
+            <br />
+            <br />
+            <strong>Business Tips:</strong> Get insights and advice.
+            <br />
+            {/* <em>Example:</em> Current trends in e-commerce?
+            <br />
+            <br /> */}
+            {/* <strong>Daily Tasks:</strong> Set reminders or find recipes.
+            <br />
+            <em>Example:</em> Remind me to submit my report tomorrow.
+            <br />
+            <br />
+            <strong>Pro Tip:</strong> I can summarize, translate, or generate
+            ideas! */}
+          </Typography>
+
           <Button
             onClick={handleDeleteChats}
             sx={{
-              width: "200px",
+              px: '50px',
+              py: '15px',
               my: "auto",
+              mb: '50px',
               color: "white",
               fontWeight: "700",
-              borderRadius: 3,
+              borderRadius: 50,
               mx: "auto",
-              bgcolor: red[300],
-              ":hover": { bgcolor: red.A400 },
+              bgcolor: '#393939',
+              ":hover": { bgcolor: '#272727' },
+              textTransform: "none",
+              fontSize: '15px'
             }}
           >
-            CLear Conversation
+            Clear Conversation
           </Button>
         </Box>
       </Box>
@@ -149,15 +188,14 @@ const Chat = () => {
           flex: { md: 0.8, xs: 1, sm: 1 },
           flexDirection: "column",
           px: 3,
+          mt: "100px",
         }}
       >
         <Typography
           sx={{
-            textAlign: "center",
-            fontSize: "40px",
-            color: "white",
+            fontSize: "30px",
+            color: "#393939",
             mb: 2,
-            mx: "auto",
             fontWeight: 600,
           }}
         >
@@ -166,7 +204,8 @@ const Chat = () => {
         <Box
           sx={{
             width: "100%",
-            height: "60vh",
+            // height: "vh",
+            mb: "30px",
             borderRadius: 3,
             mx: "auto",
             display: "flex",
@@ -185,28 +224,30 @@ const Chat = () => {
         <div
           style={{
             width: "100%",
-            padding: "20px",
+            padding: "10px",
             borderRadius: 8,
-            backgroundColor: "rgb(17,27,39)",
+            backgroundColor: "rgb(255, 255, 255)",
             display: "flex",
             margin: "auto",
+            marginBottom: "50px"
           }}
         >
           <input
             ref={inputRef}
             type="text"
+            placeholder="Ask something here..."
             style={{
               width: "100%",
               backgroundColor: "transparent",
               padding: "10px",
               border: "none",
               outline: "none",
-              color: "white",
-              fontSize: "20px",
+              color: "#393939",
+              fontSize: "17px",
             }}
           />
           <IconButton
-            sx={{ ml: "auto", color: "white" }}
+            sx={{ ml: "auto", color: "#393939" }}
             onClick={handleSubmit}
           >
             <IoMdSend />

@@ -1,57 +1,3 @@
-// import { AppBar, Toolbar } from "@mui/material";
-// import React from "react";
-// import Logo from "./shared/Logo";
-// import { useAuth } from "../context/AuthContext";
-// import NavigationLink from "./shared/NavigationLink";
-
-// const Header = () => {
-//   const auth = useAuth();
-//   return (
-//     <AppBar
-//       sx={{ bgcolor: "transparent", position: "static", boxShadow: "none" }}
-//     >
-//       <Toolbar sx={{ display: "flex" }}>
-//         <Logo />
-//       </Toolbar>
-//       <div>
-//         {auth?.isLoggedIn ? (
-//           <>
-//             <NavigationLink
-//               bg="#eff1ed"
-//               to="/chat"
-//               text="Chat"
-//               textColor="black"
-//             />
-//             <NavigationLink
-//               bg="#eff1ed"
-//               to="/"
-//               text="Signout"
-//               textColor="black"
-//               onClick={auth.logout}
-//             />
-//           </>
-//         ) : (
-//           <>            <NavigationLink
-//           bg="#eff1ed"
-//           to="/login"
-//           text="Signin"
-//           textColor="black"
-//         />
-//         <NavigationLink
-//           bg="#eff1ed"
-//           to="/signup"
-//           text="Signup"
-//           textColor="black"
-//         />
-//           </>
-//         )}
-//       </div>
-//     </AppBar>
-//   );
-// };
-
-// export default Header;
-
 import * as React from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -127,7 +73,7 @@ export default function Header(props: Props) {
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
-      <AppBar component="nav" sx={{ bgcolor: "#111d13" }}>
+      <AppBar component="nav" sx={{ bgcolor: "#fff", px: "100px" }}>
         <Toolbar>
           <IconButton
             color="inherit"
@@ -143,36 +89,80 @@ export default function Header(props: Props) {
             component="div"
             sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
           >
-            <div className="logo-normal">
-              <Logo />
-            </div>
+            <Link to={"/"} style={{ textDecoration: "none" }}>
+              <Typography color={"#2a2a2a"} fontSize={"20PX"}>
+                ECHOCHAT.
+              </Typography>
+            </Link>
           </Typography>
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
             {auth?.isLoggedIn ? (
               <>
-                <Link to="/chat" style={{ textDecoration: "none", background: "#9ef01a", color:"#111d13"}}  className="nav-link-left">
+                <Link
+                  to="/chat"
+                  style={{
+                    textDecoration: "none",
+                    background: "#e9e9e9",
+                    color: "#2a2a2a",
+                    borderRadius: "20px 0 0 20px",
+                    padding: "8px 30px",
+                    borderRight: "1px solid #bbbbbb",
+                  }}
+                  onMouseOver={(e) =>
+                    (e.currentTarget.style.backgroundColor = "#dedede")
+                  }
+                  onMouseOut={(e) =>
+                    (e.currentTarget.style.backgroundColor = "#e9e9e9")
+                  }
+                >
                   Chat
                 </Link>
                 <Link
                   to="/"
-                  style={{ textDecoration: "none", background: "#38b000", color:"white"}}
+                  style={{
+                    textDecoration: "none",
+                    background: "#e9e9e9",
+                    color: "#2a2a2a",
+                    borderRadius: "0 20px 20px 0",
+                    padding: "8px 20px",
+                  }}
+                  onMouseOver={(e) =>
+                    (e.currentTarget.style.backgroundColor = "#dedede")
+                  }
+                  onMouseOut={(e) =>
+                    (e.currentTarget.style.backgroundColor = "#e9e9e9")
+                  }
                   onClick={auth?.logout}
-                  className="nav-link-right"
                 >
                   Sign out
                 </Link>
               </>
             ) : (
               <>
-                <Link to="/login" style={{ textDecoration: "none", background: "#9ef01a", color:"#111d13"}} className="nav-link-left">
+                <Link
+                  to="/login"
+                  style={{
+                    textDecoration: "none",
+                    background: "#e9e9e9",
+                    color: "#2a2a2a",
+                    borderRadius: "20px 0 0 20px",
+                    padding: "8px 20px",
+                    borderRight: "1px solid #bbbbbb",
+                  }}
+                >
                   Sign In
                 </Link>
                 <Link
                   to="/signup"
-                  style={{ textDecoration: "none", background: "#38b000", color:"white"}}
-                  className="nav-link-right"
+                  style={{
+                    textDecoration: "none",
+                    background: "#e9e9e9",
+                    color: "#2a2a2a",
+                    borderRadius: "0 20px 20px 0",
+                    padding: "8px 20px",
+                  }}
                 >
-                  Signup
+                  Sign Up
                 </Link>
               </>
             )}

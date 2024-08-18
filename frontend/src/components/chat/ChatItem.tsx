@@ -36,12 +36,28 @@ const ChatItem = ({
   const messageBlocks = extractCodeFromString(content);
   const auth = useAuth();
   return role === "assistant" ? (
-    <Box sx={{ display: "flex", p: 2, bgcolor: "#004d5612", my: 2, gap: 2 }}>
-      <Avatar sx={{ ml: "0" }}>
+    <Box
+      sx={{
+        display: "flex",
+        p: 2,
+        bgcolor: "#fff",
+        my: 1,
+        gap: 2,
+        borderBottomRightRadius: "10px",
+        borderTopLeftRadius: "10px",
+        borderTopRightRadius: "10px",
+        boxShadow: "rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px"
+      }}
+    >
+      <Avatar sx={{ ml: "0", bgcolor: "#282828" }}>
         <img src="assistant.png" alt="" width={"30px"} />
       </Avatar>
-      <Box>
-        {!messageBlocks && <Typography fontSize={"20px"}>{content}</Typography>}
+      <Box color={"#393939"}>
+        {!messageBlocks && (
+          <Typography fontSize={"17px"} color={"#393939"}>
+            {content}
+          </Typography>
+        )}
         {messageBlocks &&
           messageBlocks.length &&
           messageBlocks.map((block) =>
@@ -50,18 +66,35 @@ const ChatItem = ({
                 {block}
               </SyntaxHighlighter>
             ) : (
-              <Typography fontSize={"20px"}>{block}</Typography>
+              <Typography fontSize={"17px"} color={"#393939"}>
+                {block}
+              </Typography>
             )
           )}
       </Box>
     </Box>
   ) : (
-    <Box sx={{ display: "flex", p: 2, bgcolor: "#004d56", gap: 2 }}>
-      <Avatar sx={{ ml: "0", bgcolor: "black", color: "white" }}>
+    <Box
+      sx={{
+        display: "flex",
+        p: 2,
+        bgcolor: "#f7f7f7",
+        gap: 2,
+        borderBottomLeftRadius: "10px",
+        borderTopLeftRadius: "10px",
+        borderTopRightRadius: "10px",
+        boxShadow: "rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px"
+      }}
+    >
+      <Avatar sx={{ ml: "0", bgcolor: "#393939", color: "white" }}>
         {auth?.user?.name[0]}
       </Avatar>
-      <Box>
-        {!messageBlocks && <Typography fontSize={"20px"}>{content}</Typography>}
+      <Box color={"#393939"}>
+        {!messageBlocks && (
+          <Typography fontSize={"17px"} color={"#393939"}>
+            {content}
+          </Typography>
+        )}
         {messageBlocks &&
           messageBlocks.length &&
           messageBlocks.map((block) =>
@@ -70,7 +103,9 @@ const ChatItem = ({
                 {block}
               </SyntaxHighlighter>
             ) : (
-              <Typography fontSize={"20px"}>{block}</Typography>
+              <Typography fontSize={"17px"} color={"#393939"}>
+                {block}
+              </Typography>
             )
           )}
       </Box>
